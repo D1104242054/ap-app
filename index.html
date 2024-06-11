@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera</title>
+</head>
+<body>
+    <h1>Camera Feed</h1>
+    <video id="video" width="320" height="240" autoplay></video>
+    <script>
+        (function () {
+            var video = document.getElementById('video');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err) {
+                    console.log("An error occurred: " + err);
+                });
+        })();
+    </script>
+</body>
+</html>
